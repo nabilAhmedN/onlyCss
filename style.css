@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background: #222;
+    font-family: Arial, "Helventica Neue" ,Helvetica, sans-serif;
+}
+
+h1 {
+    color: #ddd;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    text-shadow: 0 5px 5px #000;
+}
+
+section {
+    display: flex;
+}
+
+input {
+    display: none;
+}
+
+input[id="one"]:checked ~ label[for="one"],
+input[id="two"]:checked ~ label[for="two"],
+input[id="three"]:checked ~ label[for="three"],
+input[id="four"]:checked ~ label[for="four"],
+input[id="five"]:checked ~ label[for="five"] {
+    width: 600px;
+    box-shadow: 0 5px 15px #ff7a1888;
+}
+
+input[id="one"]:checked ~ label[for="one"] .option ,
+input[id="two"]:checked ~ label[for="two"] .option ,
+input[id="three"]:checked ~ label[for="three"] .option ,
+input[id="four"]:checked ~ label[for="four"] .option ,
+input[id="five"]:checked ~ label[for="five"] .option  {
+    padding: 1rem 2rem;
+}
+
+input[id="one"]:checked ~ label[for="one"] .icon ,
+input[id="two"]:checked ~ label[for="two"] .icon ,
+input[id="three"]:checked ~ label[for="three"] .icon ,
+input[id="four"]:checked ~ label[for="four"] .icon ,
+input[id="five"]:checked ~ label[for="five"] .icon  {
+    margin-right: 1rem;
+}
+
+input[id="one"]:checked ~ label[for="one"] .info ,
+input[id="two"]:checked ~ label[for="two"] .info ,
+input[id="three"]:checked ~ label[for="three"] .info ,
+input[id="four"]:checked ~ label[for="four"] .info,
+input[id="five"]:checked ~ label[for="five"] .info  {
+    width: 50%;
+    opacity: 1;
+    overflow: hidden;
+}
+
+label {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    width: 60px;
+    height: 400px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 3rem; /* 1rem = 16px */
+    background: linear-gradient(#0004, #0004), var(--bgImg) no-repeat scroll center;
+    background-size: cover;
+    box-shadow: 0 15px 15px #0008;
+    transition: all 0.3s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+}
+
+label::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-radius: inherit;
+    z-index: -1;
+    background: linear-gradient(130deg, #ff7a18, #eb0c44, #3bc5cf);
+}
+.option {
+    display: flex;
+    width: 100%;
+    color: #fff;
+    padding: 1rem 0.5rem;
+    transition: inherit;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    color: #2196f3;
+    background: #fff;
+    transition: inherit;
+}
+
+.info {
+    width: 0;
+    opacity: 0;
+    overflow: hidden;
+    height: 40px;
+    transition: all 0.3s ease-in-out;
+}
